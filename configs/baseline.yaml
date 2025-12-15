@@ -1,0 +1,16 @@
+vectorizer:
+  type: "tfidf" # bow | tfidf | lsa
+  ngram_range: [1, 2]
+  max_features: 50000
+  min_df: 2
+  max_df: 0.95
+
+lsa:
+  enabled: false
+  n_components: 300
+
+model:
+  type: "logreg"
+  C: 1.0
+  max_iter: 2000
+  class_weight: "balanced"

@@ -1,0 +1,9 @@
+defaults:
+  - data: data
+  - model: model
+  - train: train
+  - mlflow: mlflow
+  - baseline: baseline
+
+project:
+  name: disaster-tweets-nlp

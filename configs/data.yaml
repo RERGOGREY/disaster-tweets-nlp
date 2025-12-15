@@ -1,0 +1,18 @@
+paths:
+  data_dir: data
+  raw_dir: ${data.paths.data_dir}/raw
+  processed_dir: ${data.paths.data_dir}/processed
+
+files:
+  train_csv: ${data.paths.raw_dir}/train.csv
+  test_csv: ${data.paths.raw_dir}/test.csv
+
+split:
+  val_size: 0.15
+  seed: 42
+
+text:
+  use_keyword: true
+  use_location: false
+  max_len: 80
+  min_freq: 2
