@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/310407089144634017/7ad1bf16f4554cb6b07ea41381cb73e1/artifacts
+end_time: 1766001683195
+entry_point_name: ""
+experiment_id: "310407089144634017"
+lifecycle_stage: active
+run_id: 7ad1bf16f4554cb6b07ea41381cb73e1
+run_name: handsome-snail-32
+run_uuid: 7ad1bf16f4554cb6b07ea41381cb73e1
+source_name: ""
+source_type: 4
+source_version: ""
+start_time: 1766001679768
+status: 4
+tags: []
+user_id: zapashniysergey

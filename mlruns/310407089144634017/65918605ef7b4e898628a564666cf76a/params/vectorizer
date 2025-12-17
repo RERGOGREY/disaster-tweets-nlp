@@ -1,0 +1,1 @@
+{'type': 'tfidf', 'ngram_range': [1, 2], 'max_features': 50000, 'min_df': 2, 'max_df': 0.95}

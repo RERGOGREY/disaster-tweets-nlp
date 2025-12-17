@@ -26,6 +26,24 @@ share/python-wheels/
 *.egg
 MANIFEST
 
+# MLflow
+mlruns/
+mlartifacts/
+
+# Training artifacts
+artifacts/
+*.ckpt
+*.pt
+*.joblib
+
+# DVC local cache
+.dvc/cache/
+
+# Data (raw/processed)
+data/raw/
+data/processed/
+
+
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.

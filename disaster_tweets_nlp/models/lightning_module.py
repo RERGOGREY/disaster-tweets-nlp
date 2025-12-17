@@ -42,20 +42,27 @@ class DisasterTweetsLitModule(LightningModule):
         return self.model(input_ids)
 
     def training_step(self, batch, batch_idx: int) -> torch.Tensor:
-        logits = self(batch.input_ids)
-        loss = self.criterion(logits, batch.label)
+        input_ids = batch["input_ids"]
+        labels = batch["labels"]
+
+        logits = self(input_ids)
+        loss = self.criterion(logits, labels)
+
         self.log("train/loss", loss, on_step=True, on_epoch=True, prog_bar=True)
         return loss
 
     def validation_step(self, batch, batch_idx: int) -> None:
-        logits = self(batch.input_ids)
-        loss = self.criterion(logits, batch.label)
+        input_ids = batch["input_ids"]
+        labels = batch["labels"]
+
+        logits = self(input_ids)
+        loss = self.criterion(logits, labels)
 
         probs = torch.softmax(logits, dim=-1)[:, 1]
         preds = (probs >= 0.5).long()
 
-        self.val_acc.update(preds, batch.label)
-        self.val_f1.update(preds, batch.label)
+        self.val_acc.update(preds, labels)
+        self.val_f1.update(preds, labels)
 
         self.log("val/loss", loss, on_step=False, on_epoch=True, prog_bar=True)
 

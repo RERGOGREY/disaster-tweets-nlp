@@ -4,6 +4,7 @@ defaults:
   - train: train
   - mlflow: mlflow
   - baseline: baseline
+  - _self_
 
 project:
   name: disaster-tweets-nlp

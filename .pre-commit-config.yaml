@@ -20,3 +20,4 @@ repos:
     hooks:
       - id: prettier
         files: \.(md|yaml|yml)$
+        args: ["--ignore-unknown"]
