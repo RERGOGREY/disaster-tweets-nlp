@@ -1,4 +1,4 @@
-# Disaster Tweets NLP (Kaggle)
+# Disaster Tweets NLP
 
 Проект решает задачу бинарной классификации твитов: определить, относится ли твит к реальной катастрофе (`target=1`) или нет (`target=0`).
 
@@ -38,9 +38,57 @@
 
 ## Setup
 
+Проект использует:
+
+- Python ≥ 3.11
+- Poetry
+- DVC
+- MLflow
+
 1. Клонировать репозиторий:
 
 ````bash
 git clone https://github.com/<your-username>/disaster-tweets-nlp.git
 cd disaster-tweets-nlp```
 ````
+
+2. Установка зависиостей:
+
+```
+poetry install
+poetry shell
+```
+
+3. Установка pre-commit хуков:
+
+```
+pre-commit install
+pre-commit run -a
+```
+
+Все хуки должны завершиться успешно
+
+4 🚂 Training:
+Запуск MLflow сервера перед обучением:
+
+```
+mlflow ui --host 127.0.0.1 --port 8000
+```
+
+5. Сбор данных:
+
+```
+dvc pull
+```
+
+6.Обучение baseline и основной модели (Pythorch Lithing):
+
+```
+poetry run disaster-tweets baseline-train
+poetry run disaster-tweets train
+```
+
+В процессе обучения:
+• логируются метрики train/loss, val/loss, val/accuracy, val/f1
+• сохраняется версия кода (git commit id)
+• эксперименты доступны в MLflow UI
