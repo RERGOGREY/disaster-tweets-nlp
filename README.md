@@ -48,15 +48,15 @@
 1. Клонировать репозиторий:
 
 ````bash
-git clone https://github.com/<your-username>/disaster-tweets-nlp.git
+git clone https://github.com/RERGOGREY/disaster-tweets-nlp.git
 cd disaster-tweets-nlp```
 ````
 
 2. Установка зависиостей:
 
 ```
+pip install poetry
 poetry install
-poetry shell
 ```
 
 3. Установка pre-commit хуков:
@@ -72,16 +72,12 @@ pre-commit run -a
 Запуск MLflow сервера перед обучением:
 
 ```
-mlflow ui --host 127.0.0.1 --port 8000
+poetry run mlflow server \
+  --host 127.0.0.1 \
+  --port 8080
 ```
 
-5. Сбор данных:
-
-```
-dvc pull
-```
-
-6.Обучение baseline и основной модели (Pythorch Lithing):
+5.Обучение baseline и основной модели (Pythorch Lithing):
 
 ```
 poetry run disaster-tweets baseline-train
@@ -92,3 +88,10 @@ poetry run disaster-tweets train
 • логируются метрики train/loss, val/loss, val/accuracy, val/f1
 • сохраняется версия кода (git commit id)
 • эксперименты доступны в MLflow UI
+
+### Данные
+
+Загрузка данных реализована через **DVC** и автоматически выполняется
+внутри команд обучения (`baseline-train`, `train`).
+
+Ручной вызов `dvc pull` **не требуется**.
