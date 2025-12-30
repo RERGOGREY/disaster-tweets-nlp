@@ -62,8 +62,8 @@ poetry install
 3. Установка pre-commit хуков:
 
 ```
-pre-commit install
-pre-commit run -a
+poetry run pre-commit install
+poetry run pre-commit run -a
 ```
 
 Все хуки должны завершиться успешно
